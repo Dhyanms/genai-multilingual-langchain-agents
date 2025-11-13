@@ -15,7 +15,6 @@ from langchain.callbacks import StreamingStdOutCallbackHandler
 from langchain.prompts import ChatPromptTemplate, MessagesPlaceholder
 
 from langdetect import detect, DetectorFactory
-from transformers import pipeline
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 import chromadb
