@@ -1,14 +1,6 @@
 {
   "version": 2,
-  "env": {
-    "GEMINI_API_KEY": "@GEMINI_API_KEY",
-    "TAVILY_API_KEY": "@TAVILY_API_KEY",
-    "LLM_MODEL": "gemini-2.0-flash",
-    "ENVIRONMENT": "production",
-    "DEBUG": "False",
-    "PORT": "8000",
-    "HOST": "0.0.0.0"
-  },
+  "buildCommand": "pip install -r requirements.txt",
   "builds": [
     {
       "src": "app.py",
