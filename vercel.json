@@ -1,0 +1,46 @@
+{
+  "version": 2,
+  "env": {
+    "OPENAI_API_KEY": "@openai_api_key",
+    "GEMINI_API_KEY": "@gemini_api_key",
+    "TAVILY_API_KEY": "@tavily_api_key",
+    "SERPAPI_API_KEY": "@serpapi_api_key",
+    "ENVIRONMENT": "production",
+    "DEBUG": "False",
+    "PORT": "8000",
+    "HOST": "0.0.0.0"
+  },
+  "builds": [
+    {
+      "src": "app.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15000",
+        "runtime": "python3.11"
+      }
+    },
+    {
+      "src": "static/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "templates/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "static/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "app.py"
+    }
+  ],
+  "functions": {
+    "app.py": {
+      "maxDuration": 60
+    }
+  }
+}
